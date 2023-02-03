@@ -1,0 +1,21 @@
+.nav-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+.user-room{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 50%;
+  box-shadow: 5px 5px #888888;
+}
+}

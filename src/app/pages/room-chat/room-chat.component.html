@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-content">
+  <div>
+    <a class="navbar-brand" href="#">Room Chatting</a>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-danger" (click)="leaveRoom()">Leave Room</button>
+  </div>
+</nav>
+
+
+<div class="main-content">
+  <form #userForm="ngForm">
+    <div class="card" style="width: 50rem; margin-top: 15px;">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Send message" aria-describedby="emailHelp" name="message" ngModel >
+        </div>
+            </div>
+            <div class="col-6">
+              <button type="submit" class="btn btn-primary" (click)="handleClick(userForm.value)">Send Message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </form>
+
+
+  <div class="card" style=" width: 40%; height: 400px; overflow:scroll;">
+    <div class="card-body">
+      <ul style="list-style: none;" class="list-group">
+        <div>
+          <li *ngFor="let msg of messages" style="margin-bottom: 12px;" class="list-group-item">
+            <div><strong *ngIf="msg.username!==null">{{msg.username}}</strong></div>
+            <div style="display: flex;justify-content: space-between;">
+           <span style="font-size: 18px; font-weight: bold;">{{msg.message}}</span>
+            <strong style="margin-left:5px">{{time}}</strong>
+          </div>
+          </li>
+        </div>
+        <li *ngIf="status;" class="list-group-item" style="padding-bottom: 12px;">
+          <div style="display: flex;justify-content: space-between;">
+            <strong>{{status.username}}: </strong> Join the {{status.room}} room
+            <strong style="margin-left:5px;">{{time}}</strong>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="user-container">
+  <div class="card user-card" *ngFor="let user of users">
+    <div class="card-body users">
+      <div class="user-name">{{user.username}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="card-content">
+  <div class="card user-login" >
+  <form style="width: 40%;" #loginrForm="ngForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel>
+    </div>
+    <div class="btn-submit">
+      <button type="submit" class="btn" style="color: white; background-color: #F79523;" (click)="userLogin(loginrForm.value)">SIGN IN</button>
+    </div>
+  </form>
+  <div>
+    <p style="margin-top: 10px;">Don't have a account <a routerLink="/register">sign up</a></p>
+  </div>
+</div>
+</div>

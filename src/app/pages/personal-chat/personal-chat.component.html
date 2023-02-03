@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-content">
+  <div>
+    <a class="navbar-brand" href="#">Chatting</a>
+  </div>
+</nav>
+
+
+<div class="main-content">
+
+  <form #userForm="ngForm">
+    <div class="card" style="width: 50rem; margin-top: 15px;">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Send message" aria-describedby="emailHelp" name="message" ngModel >
+        </div>
+            </div>
+            <div class="col-6">
+              <button type="submit" class="btn btn-primary" (click)="sendMessage(userForm.value)">Send Message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </form>
+
+
+  <div class="card" style=" width: 40%; height: 400px; overflow:scroll;">
+    <div class="card" style="height: 10%;">
+      <div *ngIf="username else elseBlock">{{username}}</div>
+      <ng-template #elseBlock>
+       <div>No User Selected</div>
+      </ng-template>
+    </div>
+    <div class="card-body">
+      <ul style="list-style: none;">
+        <div *ngIf="messages">
+          <li *ngFor="let msg of messages" style="margin-bottom: 12px;">
+            <div><strong>{{msg.sender_name}}</strong></div>
+            <div style="display: flex;justify-content: space-between;">
+           <div style="font-size: 12px; font-weight: bold;">{{msg.message}}</div>
+            <strong style="margin-left:5px">{{time}}</strong>
+          </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="user-card user-container"  *ngFor="let user of users" (click)="handleUserClick(user.username,user._id)">
+  <div class="card" *ngIf="sender!==user._id" style="width: 25%; margin-top: 5px;">
+  <div class="users">
+    <div class="user-name">{{user.username}}</div>
+  </div>
+</div>
+</div>
